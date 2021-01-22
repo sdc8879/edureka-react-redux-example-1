@@ -1,0 +1,46 @@
+import React from "react";
+
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      experience: 7
+    };
+    this.onExperienceUp = this.onExperienceUp.bind(this);
+    this.onExperienceDown = this.onExperienceDown.bind(this);
+  }
+
+  onExperienceUp = () => {
+    this.setState({
+      experience: ++this.state.experience
+    });
+  };
+
+  onExperienceDown = () => {
+    this.setState({
+      experience: --this.state.experience
+    });
+  };
+
+  render() {
+    return (
+      <div className="container">
+        <div>Current Expirence: {this.state.experience}</div>
+        <button
+          onClick={() => {
+            this.onExperienceUp();
+          }}
+        >
+          UP
+        </button>
+        <button
+          onClick={() => {
+            this.onExperienceDown();
+          }}
+        >
+          Down
+        </button>
+      </div>
+    );
+  }
+}
